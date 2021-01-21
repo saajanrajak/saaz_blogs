@@ -1,0 +1,113 @@
+baseURL: http://www.example.com
+title: johndoe
+theme: hugo-coder
+languageCode: en
+defaultContentLanguage: en
+paginate: 20
+pygmentsStyle: b2
+pygmentsCodeFences: yes
+pygmentsCodeFencesGuessSyntax: yes
+disqusShortname: yourdiscussshortname
+params:
+  author: John Doe
+  avatarURL: images/avatar.jpg
+  cloudflare:
+    token: token
+  colorScheme: auto
+  commit: https://github.com/luizdepra/hugo-coder/tree/
+  customCSS: []
+  customJS: []
+  customSCSS: []
+  dateFormat: January 2, 2006
+  description: John Doe's personal website
+  enableTwemoji: yes
+  fathomAnalytics:
+    serverURL: analytics.example.com
+    siteID: ABCDE
+  footerContent: Enter a text here.
+  goatCounter:
+    code: code
+  hideColorSchemeToggle: no
+  hideCopyright: no
+  hideCredits: no
+  hideFooter: no
+  info: Full Stack DevOps and Magician
+  keywords: blog,developer,personal
+  maxSeeAlsoItems: 5
+  plausibleAnalytics:
+    domain: example.com
+    serverURL: analytics.example.com
+  rtl: no
+  since: 2019
+  social:
+    - icon: fa fa-github
+      name: Github
+      url: https://github.com/johndoe/
+      weight: 1
+    - icon: fa fa-gitlab
+      name: Gitlab
+      url: https://gitlab.com/johndoe/
+      weight: 2
+    - icon: fa fa-twitter
+      name: Twitter
+      url: https://twitter.com/johndoe/
+      weight: 3
+    - icon: fa fa-linkedin
+      name: LinkedIn
+      url: https://www.linkedin.com/in/johndoe/
+      weight: 4
+    - icon: fa fa-medium
+      name: Medium
+      url: https://medium.com/@johndoe
+      weight: 5
+    - icon: fa fa-rss
+      name: RSS
+      rel: alternate
+      type: application/rss+xml
+      url: https://myhugosite.com/index.xml
+      weight: 6
+taxonomies:
+  author: authors
+  category: categories
+  series: series
+  tag: tags
+languages:
+  en:
+    languageName: English
+    menu:
+      main:
+        - name: About
+          url: about/
+          weight: 1
+        - name: Blog
+          url: posts/
+          weight: 2
+        - name: Projects
+          url: projects/
+          weight: 3
+        - name: Contact me
+          url: contact/
+          weight: 5
+  pt-br:
+    languageName: Português
+    menu:
+      main:
+        - name: Sobre
+          url: about/
+          weight: 1
+        - name: Blog
+          url: posts/
+          weight: 2
+        - name: Projetos
+          url: projects/
+          weight: 3
+        - name: Contato
+          url: contact/
+          weight: 5
+    params:
+      author: João Ninguém
+      description: Sítio pessoal de João Ninguém
+      footerContent: Coloque algum texto aqui.
+      info: Full Stack DevOps e Mágico
+      keywords: blog,desenvolvedor,pessoal
+    title: João Ninguém
