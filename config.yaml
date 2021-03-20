@@ -9,7 +9,7 @@ pygmentsCodeFences: yes
 pygmentsCodeFencesGuessSyntax: yes
 disqusShortname: yourdiscussshortname
 params:
-  author: John Doe
+  author: Saajan
   avatarURL: images/avatar.jpg
   cloudflare:
     token: token
@@ -31,7 +31,7 @@ params:
   hideCopyright: no
   hideCredits: no
   hideFooter: no
-  info: Full Stack DevOps and Magician
+  info: Data Imagainist
   keywords: blog,developer,personal
   maxSeeAlsoItems: 5
   plausibleAnalytics:
@@ -42,7 +42,7 @@ params:
   social:
     - icon: fa fa-github
       name: Github
-      url: https://github.com/johndoe/
+      url: https://github.com/saajanrajak/
       weight: 1
     - icon: fa fa-gitlab
       name: Gitlab
@@ -54,7 +54,7 @@ params:
       weight: 3
     - icon: fa fa-linkedin
       name: LinkedIn
-      url: https://www.linkedin.com/in/johndoe/
+      url: https://www.linkedin.com/in/saajanrajak/
       weight: 4
     - icon: fa fa-medium
       name: Medium
@@ -88,14 +88,6 @@ languages:
         - name: Contact me
           url: contact/
           weight: 5
-  pt-br:
-    languageName: Português
-    menu:
-      main:
-        - name: Sobre
-          url: about/
-          weight: 1
-        - name: Blog
           url: posts/
           weight: 2
         - name: Projetos
