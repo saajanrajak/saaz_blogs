@@ -19,7 +19,7 @@ params:
   customJS: []
   customSCSS: []
   dateFormat: January 2, 2006
-  description: John Doe's personal website
+  description: Saajan personal website
   enableTwemoji: yes
   fathomAnalytics:
     serverURL: analytics.example.com
@@ -32,7 +32,7 @@ params:
   hideCredits: no
   hideFooter: no
   info: Data Imagainist
-  keywords: blog,developer,personal
+  keywords: blog,developer,personal,saajanrajak
   maxSeeAlsoItems: 5
   plausibleAnalytics:
     domain: example.com
@@ -44,28 +44,14 @@ params:
       name: Github
       url: https://github.com/saajanrajak/
       weight: 1
-    - icon: fa fa-gitlab
-      name: Gitlab
-      url: https://gitlab.com/johndoe/
-      weight: 2
     - icon: fa fa-twitter
       name: Twitter
       url: https://twitter.com/johndoe/
-      weight: 3
+      weight: 2
     - icon: fa fa-linkedin
       name: LinkedIn
       url: https://www.linkedin.com/in/saajanrajak/
-      weight: 4
-    - icon: fa fa-medium
-      name: Medium
-      url: https://medium.com/@johndoe
-      weight: 5
-    - icon: fa fa-rss
-      name: RSS
-      rel: alternate
-      type: application/rss+xml
-      url: https://myhugosite.com/index.xml
-      weight: 6
+      weight: 3
 taxonomies:
   author: authors
   category: categories
@@ -96,10 +82,4 @@ languages:
         - name: Contato
           url: contact/
           weight: 5
-    params:
-      author: João Ninguém
-      description: Sítio pessoal de João Ninguém
-      footerContent: Coloque algum texto aqui.
-      info: Full Stack DevOps e Mágico
-      keywords: blog,desenvolvedor,pessoal
-    title: João Ninguém
+ 
