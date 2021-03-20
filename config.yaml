@@ -28,9 +28,9 @@ params:
   goatCounter:
     code: code
   hideColorSchemeToggle: no
-  hideCopyright: no
-  hideCredits: no
-  hideFooter: no
+  hideCopyright: yes
+  hideCredits: yes
+  hideFooter: yes
   info: Data Imagainist
   keywords: blog,developer,personal,saajanrajak
   maxSeeAlsoItems: 5
@@ -73,13 +73,6 @@ languages:
           weight: 3
         - name: Contact me
           url: contact/
-          weight: 5
-          url: posts/
-          weight: 2
-        - name: Projetos
-          url: projects/
-          weight: 3
-        - name: Contato
-          url: contact/
-          weight: 5
+          weight: 4
+          
  
