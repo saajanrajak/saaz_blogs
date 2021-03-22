@@ -1,7 +1,7 @@
 ---
 title: "Correlation"
 author: "Saajan"
-date: "22/03/2021"
+date: 2021-01-12T21:13:14-05:00
 output: html_document
 categories: ["Statistics"]
 tags: ["Correlation", "Machine Learning", "Regression"]
@@ -26,7 +26,8 @@ tags: ["Correlation", "Machine Learning", "Regression"]
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>ggplot(df,aes(height_m, weight_kg))+
   geom_point()+
-  labs(x = &quot;Height (Meter)&quot;, y = &quot;Weight (Kg)&quot;, title = &quot;Correlation Between Height and weight&quot;)+
+  labs(x = &quot;Height (Meter)&quot;, y = &quot;Weight (Kg)&quot;,
+       title = &quot;Correlation Between Height and weight&quot;)+
   theme_minimal()</code></pre>
 <p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>By visualizing the graph,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.</p>
@@ -69,7 +70,7 @@ tags: ["Correlation", "Machine Learning", "Regression"]
 </div>
 <div id="mathematic-calculation" class="section level2">
 <h2>Mathematic Calculation</h2>
-<p>heights = h1,h2,h3, …., <span class="math inline">\(h_n\)</span>
+<p>heights = h1,h2,h3, …., <span class="math display">\[h_n\]</span>
 weights = w1,w2,w3, ….., <span class="math inline">\(w_n\)</span></p>
 <p>linear coefficient <span class="math display">\[r = \frac {cov(heights,weights)}{std(heights)*std(weights)}\]</span></p>
 <p>here

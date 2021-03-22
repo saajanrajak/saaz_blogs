@@ -1,7 +1,7 @@
 ---
 title: "Correlation"
 author: "Saajan"
-date: "22/03/2021"
+date: 2021-01-15
 output: html_document
 categories: ["Statistics"]
 tags: ["Correlation", "Machine Learning", "Regression"]
@@ -20,7 +20,7 @@ In Statistics, Correlation is a quantitative assessment that measures the streng
 
 Scaterrplot is a great way to quickly check relationship between two continuous variable.
 
-```{r echo = FALSE}
+```{r echo = FALSE message =FALSE}
 #Load Library
 require("tidyverse")
 ```
@@ -33,11 +33,12 @@ df <- read.csv("C:/Users/quest/Downloads/HeightWeight.csv")
 df <- df %>% rename("height_m" = 'Height.M',weight_kg = "Weight.kg")
 ```
 
-```{r}
+```{r eval=TRUE}
 
 ggplot(df,aes(height_m, weight_kg))+
   geom_point()+
-  labs(x = "Height (Meter)", y = "Weight (Kg)", title = "Correlation Between Height and weight")+
+  labs(x = "Height (Meter)", y = "Weight (Kg)",
+       title = "Correlation Between Height and weight")+
   theme_minimal()
 
 ```
@@ -99,8 +100,8 @@ In Regression, R squared of a pair of variables is simply the square of pearson 
 
 ## Mathematic Calculation
 
-heights = h1,h2,h3, ...., $h_n$
-weights = w1,w2,w3, ....., $w_n$
+heights = h1,h2,h3, ...., $$h_n$$
+weights = w1,w2,w3, .....,$$w_n$$
 
 linear coefficient  $$r = \frac {cov(heights,weights)}{std(heights)*std(weights)}$$
 
