@@ -3,6 +3,8 @@ title: "Correlation"
 author: "Saajan"
 date: "22/03/2021"
 output: html_document
+categories: ["Statistics"]
+tags: ["Correlation", "Machine Learning", "Regression"]
 ---
 
 ```{r setup, include=FALSE}
@@ -12,13 +14,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Correlation
 
-A Correaltion of two variables indicates that as one variable change in value, how the the other variable will change. For example Height and Weight are corealted, as height increases weight also tends to increase.
+A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example Height and Weight are correlated, as height increases weight also tends to increase.
 
-In Statistics, Correaltion is a quantative assesment that measures the strength and direction. There are many types of correalation but for starter we will start with most common,The Pearson Correaltion coeffeicents.
+In Statistics, Correlation is a quantitative assessment that measures the strength and direction. There are many types of correlation but for starter we will start with most common,The Pearson Correlation coefficients.
 
-Scater-plot is a great way to quickly check relationship between two continuous variable.
+Scaterrplot is a great way to quickly check relationship between two continuous variable.
 
-```{r message=FALSE, warning=FALSE}
+```{r echo = FALSE}
 #Load Library
 require("tidyverse")
 ```
@@ -32,28 +34,29 @@ df <- df %>% rename("height_m" = 'Height.M',weight_kg = "Weight.kg")
 ```
 
 ```{r}
-# data manupulation
 
 ggplot(df,aes(height_m, weight_kg))+
-  geom_point()
+  geom_point()+
+  labs(x = "Height (Meter)", y = "Weight (Kg)", title = "Correlation Between Height and weight")+
+  theme_minimal()
 
 ```
 
-By visualization, as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.
+By visualizing the graph,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.
 
-Pearson correlation coefficients generally represented by rho (p) . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Correaltion values ranges between -1 to +1. 
+Pearson correlation coefficients generally represented by rho $(\rho)$ . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Correltion values ranges between -1 to +1. 
 
  **Strength:** The greater the **absolute value** greater the **strength**
-   + Extreme values +1 and -1 indicate a perfect linear relationship between two variables. A change in one variable is accompanied by a perfectly constient change in another.
+   + Extreme values +1 and -1 indicate a perfect linear relationship between two variables. A change in one variable is accompanied by a perfectly constant change in another.
    + A coefficients of **0** represents no linear relationship
    
    
  **Direction:** Coefficients sign represents the direction of relationship.
-   + Positive coefficients indicate when the value of one variable increases, other variable value also increases and vice-versa. In graph, it has **upward slope**.
+   + Positive coefficients indicate when the value of one variable increases, other variable value also increases and vice versa. In graph, it has **upward slope**.
    
-   +Negative Coefficients indicate when the value of one variable increases, other variable value decreases and vice-versa. In graph, it has **downward slop**.
+   +Negative Coefficients indicate when the value of one variable increases, other variable value decreases and vice versa. In graph, it has **downward slop**.
    
-Graphical Representation of Correaltion
+##### Graphical Representation of Correltion
 
 + 1 and reverse
 
@@ -73,36 +76,42 @@ Graphs are great way to visualize the data but scaling can exaggerate or weaken 
 
 Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, lt will not detect it. 
 
-TD: Parabolic reationship Graph. 
+##### TD: Parabolic relationship Graph. 
 
 Example: 
 
-However there is relationship between the varibales but not the linear one.
+However there is relationship between the variables but not the linear one.
 
 ## Correaltion doesn't imply Causation
 
-Correaltion between two variables indicates the the change in one variable associated with another variable. However it doesn't imply that change in one variable **actually causes** the change in another variable.
+Correltion between two variables indicates the the change in one variable associated with another variable. However it doesn't imply that change in one variable **actually causes** the change in another variable.
 
-sometimes it is clear there is causal realtionship. For the height and weight data, adding more vertical structure to body causes the total mass increease. Increase the the wattage of bulbs increase the brightness of the bulb.
+Sometimes it is clear there is causal relationship. 
+* For the height and weight data, adding more vertical structure to body causes the total mass increase. 
+* Increase the the wattage of bulbs increase the brightness of the bulb.
 
 
-But Ice cream sales and Shark attack are positively correalted, clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.
+Ice cream sales and Shark attack are positively correlated, but clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.
 
 ### Fun facts: 
-In Regression, R squared of a pair of variables is simply the square of pearson coeffeicients. 
+In Regression, R squared of a pair of variables is simply the square of pearson coefficients. 
 
 
 ## Mathematic Calculation
 
-heights = h1,h2,h3, ...., hn
-weights = w1,w2,w3, ....., wn
+heights = h1,h2,h3, ...., $h_n$
+weights = w1,w2,w3, ....., $w_n$
 
-linear coefficient r = cov(heights, weights)/(std(heights), std(weights))
+linear coefficient  $$r = \frac {cov(heights,weights)}{std(heights)*std(weights)}$$
 
 
 here 
   * cov: Covariance: Variance is the dispersion of a variable around the mean.
   * std: Standard Deviation: sqr root of variance
+  
+  \begin{center} Thank you for dropping by \end{center}
+  
+  
   
 
 
