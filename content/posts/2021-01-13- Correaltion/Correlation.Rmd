@@ -5,14 +5,15 @@ date: 2021-01-15
 output: html_document
 categories: ["Statistics"]
 tags: ["Correlation", "Machine Learning", "Regression"]
+math: TRUE
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-# Correlation
+# Correlation 121
 
 A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example Height and Weight are correlated, as height increases weight also tends to increase.
 
@@ -20,7 +21,7 @@ In Statistics, Correlation is a quantitative assessment that measures the streng
 
 Scaterrplot is a great way to quickly check relationship between two continuous variable.
 
-```{r echo = FALSE message =FALSE}
+```{r include=FALSE}
 #Load Library
 require("tidyverse")
 ```
@@ -33,7 +34,7 @@ df <- read.csv("C:/Users/quest/Downloads/HeightWeight.csv")
 df <- df %>% rename("height_m" = 'Height.M',weight_kg = "Weight.kg")
 ```
 
-```{r eval=TRUE}
+```{r echo=FALSE}
 
 ggplot(df,aes(height_m, weight_kg))+
   geom_point()+
@@ -47,19 +48,49 @@ By visualizing the graph,we can say that as the person height increase the weigh
 
 Pearson correlation coefficients generally represented by rho $(\rho)$ . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Correltion values ranges between -1 to +1. 
 
- **Strength:** The greater the **absolute value** greater the **strength**
+ * **Strength:** The greater the **absolute value** greater the **strength**
    + Extreme values +1 and -1 indicate a perfect linear relationship between two variables. A change in one variable is accompanied by a perfectly constant change in another.
    + A coefficients of **0** represents no linear relationship
    
    
- **Direction:** Coefficients sign represents the direction of relationship.
+ * **Direction:** Coefficients sign represents the direction of relationship.
    + Positive coefficients indicate when the value of one variable increases, other variable value also increases and vice versa. In graph, it has **upward slope**.
-   
    +Negative Coefficients indicate when the value of one variable increases, other variable value decreases and vice versa. In graph, it has **downward slop**.
    
 ##### Graphical Representation of Correltion
 
-+ 1 and reverse
+```{r}
+# +1 Slope
+df_one <- data.frame(x = c(1:10),
+                     y = c(seq(2,20,2)))
+
+df_minus_one <- data.frame(x = c(1:10),
+                     y = c(seq(20,2,-2)))
+
+df_point_eight <- data.frame(x = c(1:10),
+                             y = c(3,3.5,4,8,6.7,6,6.6,7,7.9,7))
+
+#df_circle <- data.frame()
+
+```
+
+```{r}
+# graph
+ggplot(df_one, aes(x,y))+
+   geom_point()
+
+ggplot(df_minus_one, aes(x,y))+
+   geom_point()
+
+ggplot(df_point_eight, aes(x,y))+
+   geom_point()
+
+
+```
+
+
+
++ 1 and reverse d
 
 + .8
 
@@ -100,26 +131,24 @@ In Regression, R squared of a pair of variables is simply the square of pearson 
 
 ## Mathematic Calculation
 
-heights = h1,h2,h3, ...., $$h_n$$
-weights = w1,w2,w3, .....,$$w_n$$
+* heights = h1,h2,h3, ...., $h_n$
+* weights = w1,w2,w3, ....., $w_n$
 
-linear coefficient  $$r = \frac {cov(heights,weights)}{std(heights)*std(weights)}$$
+- linear coefficient ` $ r =\frac{cov(heights,weights)}{std(heights)*std(weights)} $`
 
 
-here 
-  * cov: Covariance: Variance is the dispersion of a variable around the mean.
-  * std: Standard Deviation: sqr root of variance
+
+  - cov: Covariance: Variance is the dispersion of a variable around the mean.
+  - std: Standard Deviation: sqr root of variance
   
-  \begin{center} Thank you for dropping by \end{center}
+  Happy Learning :)
   
-  
-  
+```{r pressure, echo=FALSE, fig.cap="A New adding", out.width = "50%"}
+knitr::include_graphics("new.jpg")
+```
 
+![](new.jpg){ width=1000 }
 
-
-
-
-
-
+apple22
 
 
