@@ -3,5 +3,8 @@ slug: contact
 title: Contact
 ---
 
-Follow me, @Saajan 
+* Email: <saajankrajak@gmail.com>
+* Twitter: <https://twitter.com/saajanrajak>
+* Linkedin: <https://www.linkedin.com/in/saajanrajak/>
+
 
