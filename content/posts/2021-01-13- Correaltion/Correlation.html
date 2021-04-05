@@ -11,14 +11,42 @@ math: TRUE
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="correlation-121" class="section level1">
-<h1>Correlation 121</h1>
+<div id="objective" class="section level1">
+<h1><strong>Objective</strong></h1>
+<p>The Objective of this blog is understand the basic concepts of Correlation. We are going to learn</p>
+<ul>
+<li><strong><em>What is correlation?</em></strong></li>
+<li><strong><em>Different Types Of Correlation</em></strong></li>
+<li><strong><em>Correlation Assessment</em></strong></li>
+<li><strong><em>Graphical Assessment</em></strong></li>
+<li><strong><em>Mathematical Calculation</em></strong></li>
+<li><strong><em>R Calculation</em></strong></li>
+<li><strong><em>Correlation V/s Causation</em></strong></li>
+</ul>
+<pre class="r"><code>#![image by Lum3n1](\images\math_001.jpg){ width=20%,height=5%}</code></pre>
+<div id="what-is-correaltion" class="section level2">
+<h2>What is Correaltion?</h2>
 <p>A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example Height and Weight are correlated, as height increases weight also tends to increase.</p>
 <p>In Statistics, Correlation is a quantitative assessment that measures the strength and direction. There are many types of correlation but for starter we will start with most common,The Pearson Correlation coefficients.</p>
 <p>Scaterrplot is a great way to quickly check relationship between two continuous variable.</p>
-<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>By visualizing the graph,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.</p>
-<p>Pearson correlation coefficients generally represented by rho <span class="math inline">\((\rho)\)</span> . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Correltion values ranges between -1 to +1.</p>
+<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="different-types-of-correlation" class="section level2">
+<h2>Different Types Of Correlation</h2>
+<p>Usually in statistics we measure four types of Correlation</p>
+<ul>
+<li>Pearson Correlation</li>
+<li>Kendall Rank Correlation</li>
+<li>Spearman Correlation</li>
+<li>Point-Biserial Correlation</li>
+</ul>
+<p>But for this blog, we will start with most common,The Pearson Correlation.</p>
+</div>
+<div id="corealtion-assesment" class="section level2">
+<h2>Corealtion Assesment</h2>
+<p>Pearson Correlation is a quantitative assessment that measures the strength and direction.
+By visualizing the above graph-1,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.</p>
+<p>Pearson correlation coefficients generally represented by rho <span class="math inline">\((\rho)\)</span> . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Pearson correlation coefficients values ranges between -1 to +1.</p>
 <ul>
 <li><strong>Strength:</strong> The greater the <strong>absolute value</strong> greater the <strong>strength</strong>
 <ul>
@@ -31,8 +59,9 @@ math: TRUE
 +Negative Coefficients indicate when the value of one variable increases, other variable value decreases and vice versa. In graph, it has <strong>downward slop</strong>.</li>
 </ul></li>
 </ul>
-<div id="graphical-representation-of-correltion" class="section level5">
-<h5>Graphical Representation of Correltion</h5>
+</div>
+<div id="graphical-assessment" class="section level2">
+<h2>Graphical Assessment</h2>
 <pre class="r"><code># +1 Slope
 df_one &lt;- data.frame(x = c(1:10),
                      y = c(seq(2,20,2)))
@@ -47,13 +76,13 @@ df_point_eight &lt;- data.frame(x = c(1:10),
 <pre class="r"><code># graph
 ggplot(df_one, aes(x,y))+
    geom_point()</code></pre>
-<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code>ggplot(df_minus_one, aes(x,y))+
    geom_point()</code></pre>
-<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
 <pre class="r"><code>ggplot(df_point_eight, aes(x,y))+
    geom_point()</code></pre>
-<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
 <ul>
 <li><p>1 and reverse d</p></li>
 <li><p>.8</p></li>
@@ -63,27 +92,13 @@ ggplot(df_one, aes(x,y))+
 <p>and zero</p>
 <p>Graphs are great way to visualize the data but scaling can exaggerate or weaken the appearance of a relationship. Plus Automatic scaling in most Statistical software make all data look similar.</p>
 <hr />
-<p>Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, lt will not detect it.</p>
-</div>
-<div id="td-parabolic-relationship-graph." class="section level5">
-<h5>TD: Parabolic relationship Graph.</h5>
+<p>Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, it will not detect it.</p>
+<p>@@@ TD: Parabolic relationship Graph.</p>
 <p>Example:</p>
 <p>However there is relationship between the variables but not the linear one.</p>
 </div>
-<div id="correaltion-doesnt-imply-causation" class="section level2">
-<h2>Correaltion doesn’t imply Causation</h2>
-<p>Correltion between two variables indicates the the change in one variable associated with another variable. However it doesn’t imply that change in one variable <strong>actually causes</strong> the change in another variable.</p>
-<p>Sometimes it is clear there is causal relationship.
-* For the height and weight data, adding more vertical structure to body causes the total mass increase.
-* Increase the the wattage of bulbs increase the brightness of the bulb.</p>
-<p>Ice cream sales and Shark attack are positively correlated, but clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.</p>
-<div id="fun-facts" class="section level3">
-<h3>Fun facts:</h3>
-<p>In Regression, R squared of a pair of variables is simply the square of pearson coefficients.</p>
-</div>
-</div>
-<div id="mathematic-calculation" class="section level2">
-<h2>Mathematic Calculation</h2>
+<div id="mathematical-calculation" class="section level2">
+<h2>Mathematical Calculation</h2>
 <ul>
 <li><p>heights = h1,h2,h3, …., <span class="math inline">\(h_n\)</span></p></li>
 <li><p>weights = w1,w2,w3, ….., <span class="math inline">\(w_n\)</span></p></li>
@@ -91,16 +106,27 @@ ggplot(df_one, aes(x,y))+
 <ul>
 <li>cov: Covariance: Variance is the dispersion of a variable around the mean.</li>
 <li>std: Standard Deviation: sqr root of variance</li>
+</ul></li>
 </ul>
-<p>Happy Learning :)</p></li>
-</ul>
-<div class="figure"><span id="fig:pressure"></span>
-<img src="new.jpg" alt="A New adding" width="50%" />
-<p class="caption">
-Figure 1: A New adding
-</p>
 </div>
-<p><img src="new.jpg" width="1000" /></p>
-<p>apple22</p>
+<div id="r-calcualtion-and-represntation" class="section level2">
+<h2>R Calcualtion and Represntation</h2>
+<pre class="r"><code>#library(cor)</code></pre>
+</div>
+<div id="correlation-vs-causation" class="section level2">
+<h2>Correlation v/s Causation</h2>
+<p>Correlation doesn’t imply Causation</p>
+<p>Correlation between two variables indicates the the change in one variable associated with another variable. However it doesn’t imply that change in one variable <strong>actually causes</strong> the change in another variable.</p>
+<p>Sometimes it is clear there is causal relationship.</p>
+<ul>
+<li>For the height and weight data, adding more vertical structure to body causes the total mass increase.</li>
+<li>Increase the the wattage of bulbs increase the brightness of the bulb.</li>
+</ul>
+<p>Ice cream sales and Shark attack are positively correlated, but clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.</p>
+<div id="fun-facts" class="section level3">
+<h3>Fun facts:</h3>
+<p>In Regression, R squared of a pair of variables is simply the square of pearson coefficients.</p>
+<p>Happy Learning :)</p>
+</div>
 </div>
 </div>

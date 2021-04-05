@@ -13,7 +13,21 @@ math: TRUE
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Correlation 121
+# **Objective**
+The Objective of this blog is understand the basic concepts of Correlation. We are going to learn 
+
+ * **_What is correlation?_**
+ * **_Different Types Of Correlation_**
+ * **_Correlation Assessment_**
+ * **_Graphical Assessment_**
+ * **_Mathematical Calculation_**
+ * **_R Calculation_**
+ * **_Correlation V/s Causation_**
+
+```{r}
+#![image by Lum3n1](\images\math_001.jpg){ width=20%,height=5%}
+```
+## What is Correaltion?
 
 A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example Height and Weight are correlated, as height increases weight also tends to increase.
 
@@ -44,9 +58,23 @@ ggplot(df,aes(height_m, weight_kg))+
 
 ```
 
-By visualizing the graph,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.
+## Different Types Of Correlation
 
-Pearson correlation coefficients generally represented by rho $(\rho)$ . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Correltion values ranges between -1 to +1. 
+Usually in statistics we measure four types of Correlation
+
+  * Pearson Correlation
+  * Kendall Rank Correlation 
+  * Spearman Correlation
+  * Point-Biserial Correlation
+  
+ But for this blog, we will start with most common,The Pearson Correlation.
+
+## Corealtion Assesment
+
+Pearson Correlation is a quantitative assessment that measures the strength and direction.
+By visualizing the above graph-1,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.
+
+Pearson correlation coefficients generally represented by rho $(\rho)$ . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Pearson correlation coefficients values ranges between -1 to +1. 
 
  * **Strength:** The greater the **absolute value** greater the **strength**
    + Extreme values +1 and -1 indicate a perfect linear relationship between two variables. A change in one variable is accompanied by a perfectly constant change in another.
@@ -57,7 +85,7 @@ Pearson correlation coefficients generally represented by rho $(\rho)$ . This co
    + Positive coefficients indicate when the value of one variable increases, other variable value also increases and vice versa. In graph, it has **upward slope**.
    +Negative Coefficients indicate when the value of one variable increases, other variable value decreases and vice versa. In graph, it has **downward slop**.
    
-##### Graphical Representation of Correltion
+## Graphical Assessment
 
 ```{r}
 # +1 Slope
@@ -106,30 +134,17 @@ Graphs are great way to visualize the data but scaling can exaggerate or weaken 
 
 ***
 
-Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, lt will not detect it. 
+Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, it will not detect it. 
 
-##### TD: Parabolic relationship Graph. 
+@@@ TD: Parabolic relationship Graph. 
 
 Example: 
 
 However there is relationship between the variables but not the linear one.
 
-## Correaltion doesn't imply Causation
-
-Correltion between two variables indicates the the change in one variable associated with another variable. However it doesn't imply that change in one variable **actually causes** the change in another variable.
-
-Sometimes it is clear there is causal relationship. 
-* For the height and weight data, adding more vertical structure to body causes the total mass increase. 
-* Increase the the wattage of bulbs increase the brightness of the bulb.
 
 
-Ice cream sales and Shark attack are positively correlated, but clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.
-
-### Fun facts: 
-In Regression, R squared of a pair of variables is simply the square of pearson coefficients. 
-
-
-## Mathematic Calculation
+## Mathematical Calculation
 
 * heights = h1,h2,h3, ...., $h_n$
 * weights = w1,w2,w3, ....., $w_n$
@@ -140,15 +155,38 @@ In Regression, R squared of a pair of variables is simply the square of pearson 
 
   - cov: Covariance: Variance is the dispersion of a variable around the mean.
   - std: Standard Deviation: sqr root of variance
-  
-  Happy Learning :)
-  
-```{r pressure, echo=FALSE, fig.cap="A New adding", out.width = "50%"}
-knitr::include_graphics("new.jpg")
+
+## R Calcualtion and Represntation
+```{r}
+#library(cor)
 ```
 
-![](new.jpg){ width=1000 }
 
-apple22
+## Correlation v/s Causation
+
+Correlation doesn't imply Causation
+
+Correlation between two variables indicates the the change in one variable associated with another variable. However it doesn't imply that change in one variable **actually causes** the change in another variable.
+
+Sometimes it is clear there is causal relationship. 
+
+* For the height and weight data, adding more vertical structure to body causes the total mass increase. 
+* Increase the the wattage of bulbs increase the brightness of the bulb.
+
+
+Ice cream sales and Shark attack are positively correlated, but clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.
+
+### Fun facts: 
+In Regression, R squared of a pair of variables is simply the square of pearson coefficients. 
+
+
+
+  
+Happy Learning :)
+  
+
+
+
+
 
 
