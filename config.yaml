@@ -46,7 +46,7 @@ params:
       weight: 1
     - icon: fa fa-twitter
       name: Twitter
-      url: https://twitter.com/johndoe/
+      url: https://twitter.com/saajanrajak/
       weight: 2
     - icon: fa fa-linkedin
       name: LinkedIn
