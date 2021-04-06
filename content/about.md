@@ -16,7 +16,7 @@ Workflow
 R, SQL, Excel. Git, Tableau, Power Bi, Google Analytics
 
 ## Education 
-B-Tech Civil Engg from Indian Institute of Technology, 2015
+B-tech Civil Engg from IIT Bombay, 2015
 
 ## Resume 
 [Saajan_004.pdf](https://github.com/saajanrajak/saaz_blogs/files/6266798/Saajan_004.pdf)
