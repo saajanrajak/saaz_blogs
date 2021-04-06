@@ -2,21 +2,10 @@
 slug: about
 title: About me
 ---
+
 ## Introduction
-I have 2 years of experience in data analytics and now I am focusing on marketing analytics as my niche, where I help the brand with valuable insights using the customer data, so they can make informed decisions
+Skilled data analyst with overall experience of 4.8 years of industry experience in collecting, organizing, interpreting, and disseminating various types of statistical figures. Energetic presenter and confident communicator with the ability to circulate information in a way that is clear, efficient, and beneficial for end users. Creative in finding solutions to problems and determining modifications for optimal use of organizational data. Expert at providing realistic projections and establishing various scenarios to determine viable process strategies to utilize. Organized and timely in providing staff, departmental members, and executive management with reports on specific data findings and their impact on organizational growth and success
 
+I have solved a variety of complex business problems around Operations,  Behaviour Analysis, Web Analytics, Inferential Analysis, Predictive Modeling
 
-## Contact
-It makes use of a variety of open source projects including:
-
-* Email: (saajankrajak@gmail.com)
-* [Linkedin](https://www.linkedin.com/in/saajanrajak/)
-* [Github](https://github.com/saajanrajak)
-
-
-
-
-## Setup
-
-
-Thanks for reading!
+Competence: R, SQL, Excel. Git, Tableau, Power Bi, Google Analytics
