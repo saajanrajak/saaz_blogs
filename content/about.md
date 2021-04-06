@@ -9,7 +9,8 @@ Skilled data analyst with overall experience of 4.8 years of industry experience
 I have solved a variety of complex business problems around Operations,  Behaviour Analysis, Web Analytics, Inferential Analysis, Predictive Modeling
 
 Workflow
-Business Problem > Data Problem > Data Answer > Business Answer
+
+> Business Problem > Data Problem > Data Answer > Business Answer
 
 ## Tech Skills
 R, SQL, Excel. Git, Tableau, Power Bi, Google Analytics
