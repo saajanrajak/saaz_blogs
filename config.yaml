@@ -10,7 +10,7 @@ pygmentsCodeFencesGuessSyntax: yes
 disqusShortname: yourdiscussshortname
 params:
   author: Saajan
-  avatarURL: images/golden_ratio.jpg
+  avatarURL: images/avatar.jpg
   cloudflare:
     token: token
   colorScheme: auto
