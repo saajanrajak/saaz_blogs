@@ -10,7 +10,7 @@ pygmentsCodeFencesGuessSyntax: yes
 disqusShortname: yourdiscussshortname
 params:
   author: Saajan
-  avatarURL: images/avatar.jpg
+  avatarURL: images/tree_book.jpg
   cloudflare:
     token: token
   colorScheme: auto
@@ -31,7 +31,7 @@ params:
   hideCopyright: yes
   hideCredits: yes
   hideFooter: yes
-  info: Data Imagainist
+  info: ‘Tell me and I forget. Teach me and I remember. Involve me and I learn.’ –Benjamin Franklin
   keywords: blog,developer,personal,saajanrajak
   maxSeeAlsoItems: 5
   plausibleAnalytics:
