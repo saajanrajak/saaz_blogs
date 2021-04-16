@@ -1,0 +1,105 @@
+---
+title: "SQL: Order of Phoenix"
+author: "Saajan"
+date: 2021-02-04
+output: html_document
+categories: ["SQL" ]
+tags: ["SQL", "MYSQL"]
+math: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+The **Writing and Execution style of SQL is different**. Understanding the execution style of SQL will help us in writing better SQL codes. This blog will be primarily focus on execution style of SQL and understand some nuances of SQL clauses.
+
+1. SQL: Writing and Execution style
+2. SQL: Order of Phoenix
+3. SQL: Cautions
+
+
+##  SQL: Writing and Execution style
+
+
+![](\images\sql98.png){ width=40%,height=20% }
+
+
+## SQL: Order of Phoenix
+### **_FROM AND JOIN_**
+* SQL first and foremost create required working data from tables associated with **FROM & JOIN**.
+* Also evaluate Sub-queries and temporary tables in query.
+
+### **_WHERE_**
+* **WHERE** clause will filter data according to the defined conditions
+* It cannot filter by aliases defined in the select clause, as the aliases column are not evaluated yet
+* We also cannot filter aggregated column in **WHERE** clause ex: **WHERE AVG(price) > 100**
+
+### **_GROUP BY_**
+* **Group By** clause comes next, it used for grouping/splitting/aggregating the data. 
+* It will reduce the rows, create single rows for each individual groups
+* In SQL each **NULL** is different. Each **NULL** element in group by column will have its own row
+* Once we aggregated the data, we can use aggregated function like **sum, min, max, avg, count, etc** 
+
+### **_HAVING_**
+* As we can visualize the data has transformed, we use **HAVING** clause to filter the grouped results.
+* We also cannot filter the data, aliases in the select column, as they are not evaluated yet. But we can define it in **HAVING** clause.
+``` 
+             SELECT category, SUM(price) as total  
+             FROM table  
+             GROUP BY category  
+             HAVING SUM(price) > 1000
+```             
+             
+             
+### **_SELECT_**   
+*  **SELECT** clause use to select required columns or expression
+* if we are using aggregation function in select column, remember it started earlier in **GROUP BY** clause.
+* **_DISTINCT_**
+   +  **Distinct** clause use to return distinct values/rows from table
+   +  We need to define only once **DISTINCT** clause while distinct multiple columns.
+   ``` 
+              SELECT DISTINCT C1, C2, C3
+              FROM table
+   ```
+       it will give distinct values in each row
+   
+
+
+### **_ORDER BY_**
+* We can sort the resulted data using columns, selected aliases or aggregation function, even with non-selected columns
+* Using **DISTINCT** in **SELECT**, prevents sorting in non-selected columns
+* Use **ASC** (pre defined) or **DESC** with column name in sorting
+
+### **_LIMIT & OFFSET_**
+* **LIMIT & OFFSET** clause is used as its name says limiting the rows and offsetting the rows to find our desired data. 
+* *LIMIT 10 OFFSET 15*: it will fetch the first 10 rows after offsetting 15 rows.  Result will show rows-no 16 to 25.
+
+
+## Sql: CautionS
+* In Mysql order of executions is little different, **SELECT** comes before **GROUP BY** and **HAVING** clause. We can use aliases in **GROUP BY & HAVING**.
+* **LIMIT 1,2** : In Mysql, we can write limit offset together, but there is a catch, the first value is a offset, and later one is for limiting.
+*Expression aliases cannot be used by other expressions within the same SELECT list
+```
+     SELECT sell_price - cost_price as diff, 
+            (diff/cost_price)*100 as diff_percnet
+     FROM TABLE          
+```   
+     It will give error if we run above query.
+* **COUNT(\*) vs COUNT(1)**
+   + Both are same, the value inside the parenthesis is used to assign to every row in table for counting **COUNT(\*) = COUNT(1) = COUNT(-99)**. [for more details](https://learnsql.com/blog/difference-between-count-distinct/)
+* **COUNT(\*) vs COUNT(col_name)**
+   + **COUNT(\*)**: count all rows **including NULL**. Each NULL is different, each count for NULL will be individual value.
+   + **COUNT(column)**: count all rows **excluding NULL**
+   
+
+**Happy Learning :)**   
+
+   
+
+
+
+
+
