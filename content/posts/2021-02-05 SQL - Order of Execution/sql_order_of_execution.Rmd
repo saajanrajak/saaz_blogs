@@ -24,7 +24,7 @@ The **Writing and Execution style of SQL is different**. Understanding the execu
 ##  SQL: Writing and Execution style
 
 
-![](\images\sql98.png){ width=40%,height=20% }
+![](\images\sql96.png){ width=40%,height=20% }
 
 
 ## SQL: Order of Phoenix

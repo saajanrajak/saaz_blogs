@@ -122,12 +122,7 @@ plot_grid(cor_1, cor_m_1,
 
 ```
 
-Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, it will not detect it as shown bottom right figure.
-
-Example: 
-
-However there is relationship between the variables but not the linear one.
-
+Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, it will not detect it as shown bottom right figure. However there is relationship between the variables but not the linear one.
 
 
 ## Mathematical Calculation
@@ -136,8 +131,6 @@ However there is relationship between the variables but not the linear one.
 * weights = w1,w2,w3, ....., $w_n$
 
 - linear coefficient ` $ r =\frac{cov(heights,weights)}{std(heights)*std(weights)} $`
-
-
 
   - cov: Covariance: Variance is the dispersion of a variable around the mean.
   - std: Standard Deviation: sqr root of variance
