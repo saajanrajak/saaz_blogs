@@ -82,7 +82,7 @@ The **Writing and Execution style of SQL is different**. Understanding the execu
 * In **Mysql** order of executions is little different, **SELECT** comes before **GROUP BY** and **HAVING** clause. We can use aliases in **GROUP BY & HAVING**.
 * We can use non-selected columns for sorting, in **MYSQL**,still using  **DISTINCT** in select clause.
 * **LIMIT 1,2** : In **Mysql**, we can write limit offset together, but there is a catch, the first value is a offset, and later one is for limiting.
-*Expression aliases cannot be used by other expressions within the same SELECT list
+* Expression aliases cannot be used by other expressions within the same SELECT list
 ```
      SELECT sell_price - cost_price as diff, 
             (diff/cost_price)*100 as diff_percnet

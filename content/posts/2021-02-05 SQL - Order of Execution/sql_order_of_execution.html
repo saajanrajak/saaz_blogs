@@ -97,8 +97,8 @@ math: TRUE
 <ul>
 <li>In <strong>Mysql</strong> order of executions is little different, <strong>SELECT</strong> comes before <strong>GROUP BY</strong> and <strong>HAVING</strong> clause. We can use aliases in <strong>GROUP BY &amp; HAVING</strong>.</li>
 <li>We can use non-selected columns for sorting, in <strong>MYSQL</strong>,still using <strong>DISTINCT</strong> in select clause.</li>
-<li><strong>LIMIT 1,2</strong> : In <strong>Mysql</strong>, we can write limit offset together, but there is a catch, the first value is a offset, and later one is for limiting.
-*Expression aliases cannot be used by other expressions within the same SELECT list</li>
+<li><strong>LIMIT 1,2</strong> : In <strong>Mysql</strong>, we can write limit offset together, but there is a catch, the first value is a offset, and later one is for limiting.</li>
+<li>Expression aliases cannot be used by other expressions within the same SELECT list</li>
 </ul>
 <pre><code>     SELECT sell_price - cost_price as diff, 
             (diff/cost_price)*100 as diff_percnet
