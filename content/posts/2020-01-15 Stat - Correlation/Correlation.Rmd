@@ -40,7 +40,7 @@ Scatterplots is a great way to quickly check relationship between two continuous
 ggplot(mtcars,aes(wt, mpg))+
   geom_point()+
   labs(x = "Weight", y = "MPG",
-       title = "Correlation between Weight and Miles Per Gallon (mpg) for Car")+
+       title = "Correlation between Weight and Miles Per Gallon (mpg) for Cars")+
   theme_minimal()
 
 ```
