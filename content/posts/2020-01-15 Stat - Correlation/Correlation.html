@@ -25,9 +25,9 @@ math: TRUE
 </ul>
 <div id="what-is-correaltion" class="section level2">
 <h2>What is Correaltion?</h2>
-<p>A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example Height and Weight are correlated, as height increases weight also tends to increase.</p>
-<p>Scaterrplot is a great way to quickly check relationship between two continuous variable.</p>
-<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-3-1.png" width="576" /></p>
+<p>A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example in <code>mtcars</code> data weight and Miles per gallon (mpg) highly are correlated, as <strong>Weight of a car increases, its distance traveled per gallon decreases</strong></p>
+<p>Scatterplots is a great way to quickly check relationship between two continuous variable.</p>
+<p><img src="/posts/2020-01-15 Stat - Correlation/Correlation_files/figure-html/unnamed-chunk-1-1.png" width="576" /></p>
 </div>
 <div id="different-types-of-correlation" class="section level2">
 <h2>Different Types Of Correlation</h2>
@@ -40,10 +40,10 @@ math: TRUE
 </ul>
 <p>But for this blog, we will start with most common,The Pearson Correlation.</p>
 </div>
-<div id="pearson-corealtion-assesment" class="section level2">
-<h2>Pearson Corealtion Assesment</h2>
+<div id="pearson-correaltion-assesment" class="section level2">
+<h2>Pearson Correaltion Assesment</h2>
 <p>Pearson Correlation is a quantitative assessment that measures the strength and direction.
-By visualizing the above graph-1,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.</p>
+By visualizing the above graph, we can say that as the cars weight increase, miles traveled per gallon decreases. But its not a perfect relationship.</p>
 <p>Pearson correlation coefficients generally represented by rho <span class="math inline">\((\rho)\)</span> . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Pearson correlation coefficients values ranges between -1 to +1.</p>
 <ul>
 <li><strong>Strength:</strong> The greater the <strong>absolute value</strong> greater the <strong>strength</strong>
@@ -60,10 +60,8 @@ By visualizing the above graph-1,we can say that as the person height increase t
 </div>
 <div id="graphical-assessment" class="section level2">
 <h2>Graphical Assessment</h2>
-<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-5-1.png" width="768" /></p>
-<p>Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, it will not detect it as shown bottom right figure.</p>
-<p>Example:</p>
-<p>However there is relationship between the variables but not the linear one.</p>
+<p><img src="/posts/2020-01-15 Stat - Correlation/Correlation_files/figure-html/unnamed-chunk-3-1.png" width="768" /></p>
+<p>Pearson Correlation measure only the linear relationship. If however your data contain curvilinear relationship, it will not detect it as shown bottom right figure. However there is relationship between the variables but not the linear one.</p>
 </div>
 <div id="mathematical-calculation" class="section level2">
 <h2>Mathematical Calculation</h2>
@@ -80,13 +78,13 @@ By visualizing the above graph-1,we can say that as the person height increase t
 <div id="r-calcualtion-and-represntation" class="section level2">
 <h2>R Calcualtion and Represntation</h2>
 <p>Here we will be using mtcars data (available in base r).The Correlation between two variables using <span class="math inline">\(cor()\)</span> function. By default it will calculate <em>pearson coefficient correlation</em>.</p>
-<pre class="r"><code># correlation between cylinder and displacement of different cars
-cor(mtcars$cyl, mtcars$disp)</code></pre>
-<pre><code>## [1] 0.9020329</code></pre>
+<pre class="r"><code># Correlation between Weight and distance traveled per gallon in mtcars dataset
+cor(mtcars$wt, mtcars$mpg)</code></pre>
+<pre><code>## [1] -0.8676594</code></pre>
 <p>If you want to compute the <em>Spearman correlation</em>, add the argument <span class="math inline">\(method = &quot;spearman&quot;\)</span> to the cor() function:</p>
-<pre class="r"><code># spearman correlation
-cor(mtcars$hp, mtcars$mpg,method = &quot;spearman&quot;) </code></pre>
-<pre><code>## [1] -0.8946646</code></pre>
+<pre class="r"><code># Spearman correlation
+cor(mtcars$wt, mtcars$mpg, method = &quot;spearman&quot;) </code></pre>
+<pre><code>## [1] -0.886422</code></pre>
 <p>We can also plot correlation matrix, but after removing categorical variable.</p>
 <pre class="r"><code>library(corrplot)</code></pre>
 <pre><code>## corrplot 0.84 loaded</code></pre>
@@ -98,18 +96,18 @@ corrplot(cor(dat),
   method = &quot;circle&quot;,
   type = &quot;upper&quot; # show only upper side
 )</code></pre>
-<p><img src="/posts/2021-01-13- Correaltion/Correlation_files/figure-html/unnamed-chunk-8-1.png" width="480" /></p>
+<p><img src="/posts/2020-01-15 Stat - Correlation/Correlation_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
 </div>
 <div id="correlation-vs-causation" class="section level2">
 <h2>Correlation v/s Causation</h2>
-<p>Correlation doesn’t imply Causation</p>
+<p><strong>Correlation doesn’t imply Causation!</strong></p>
 <p>Correlation between two variables indicates the the change in one variable associated with another variable. However it doesn’t imply that change in one variable <strong>actually causes</strong> the change in another variable.</p>
 <p>Sometimes it is clear there is causal relationship.</p>
 <ul>
-<li>For the height and weight data, adding more vertical structure to body causes the total mass increase.</li>
 <li>Increase the the wattage of bulbs increase the brightness of the bulb.</li>
 </ul>
-<p>#<img src="\images\cc_02.png" alt="image by Lum3n1" /></p>
+<p><strong>Classic Example</strong></p>
+<p><img src="\images\cc_02.png" /></p>
 <p>Ice cream sales and Shark attack are positively correlated, but clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.</p>
 </div>
 <div id="fun-facts" class="section level2">

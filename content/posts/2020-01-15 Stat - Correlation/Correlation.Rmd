@@ -11,6 +11,9 @@ math: TRUE
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+#Load Library
+require("tidyverse")
+
 ```
 
 # **Objective**
@@ -27,30 +30,17 @@ The Objective of this blog is understand the basic concepts of Correlation. We a
 
 ## What is Correaltion?
 
-A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example Height and Weight are correlated, as height increases weight also tends to increase.
+A Correlation of two variables indicates that as one variable change in value, how the the other variable will change. For example in `mtcars` data weight and Miles per gallon (mpg) highly are correlated, as **Weight of a car increases, its distance traveled per gallon decreases**
 
-Scaterrplot is a great way to quickly check relationship between two continuous variable.
+Scatterplots is a great way to quickly check relationship between two continuous variable.
 
-```{r include=FALSE}
-#Load Library
-require("tidyverse")
-
-```
-
-
-```{r, echo=FALSE}
-#Load the data
-df <- read.csv("C:/Users/quest/Downloads/HeightWeight.csv")
-
-df <- df %>% rename("height_m" = 'Height.M',weight_kg = "Weight.kg")
-```
 
 ```{r echo=FALSE, fig.width= 6, fig.height=3}
 
-ggplot(df,aes(height_m, weight_kg))+
+ggplot(mtcars,aes(wt, mpg))+
   geom_point()+
-  labs(x = "Height (Meter)", y = "Weight (Kg)",
-       title = "Correlation Between Height and weight")+
+  labs(x = "Weight", y = "MPG",
+       title = "Correlation between Weight and Miles Per Gallon (mpg) for Car")+
   theme_minimal()
 
 ```
@@ -66,10 +56,10 @@ Usually in statistics we measure four types of Correlation
   
  But for this blog, we will start with most common,The Pearson Correlation.
 
-## Pearson Corealtion Assesment
+## Pearson Correaltion Assesment
 
 Pearson Correlation is a quantitative assessment that measures the strength and direction.
-By visualizing the above graph-1,we can say that as the person height increase the weight of person increases. But its not a perfect relationship. we can also find there are some sort people who have weight higher than the taller person. however as height increases weight increases.
+By visualizing the above graph, we can say that as the cars weight increase, miles traveled per gallon decreases. But its not a perfect relationship. 
 
 Pearson correlation coefficients generally represented by rho $(\rho)$ . This coefficients is a single number which measures both strength and direction of linear relationship for two variables. Pearson correlation coefficients values ranges between -1 to +1. 
 
@@ -115,10 +105,11 @@ cor_point_8 <- ggplot(df_point_eight, aes(x,y))+
   geom_point()
 
 cor_parabola <- ggplot(df_parabola, aes(x,y))+
-  geom_point()
+  geom_point()+
+  geom_line()
 
 plot_grid(cor_1, cor_m_1,
-          cor_point_8 , cor_parabola, labels =c("cor = 1", "cor = -1", cor = 0.8, "No linear relation"), ncol = 2, nrow = 2)
+          cor_point_8 , cor_parabola, labels =c("cor = 1", "cor = -1", cor = "cor = 0.8", "No linear relation"), ncol = 2, nrow = 2)
 
 ```
 
@@ -140,16 +131,16 @@ Pearson Correlation measure only the linear relationship. If however your data c
 Here we will be using mtcars data (available in base r).The Correlation between two variables using $cor()$ function. By default it will calculate *pearson coefficient correlation*.  
 
 ```{r}
-# correlation between cylinder and displacement of different cars
-cor(mtcars$cyl, mtcars$disp)
+# Correlation between Weight and distance traveled per gallon in mtcars dataset
+cor(mtcars$wt, mtcars$mpg)
 
 ```
 
 
 If you want to compute the *Spearman correlation*, add the argument $method = "spearman"$ to the cor() function:
 ```{r}
-# spearman correlation
-cor(mtcars$hp, mtcars$mpg,method = "spearman") 
+# Spearman correlation
+cor(mtcars$wt, mtcars$mpg, method = "spearman") 
 ```
 
 
@@ -173,16 +164,17 @@ corrplot(cor(dat),
 
 ## Correlation v/s Causation
 
-Correlation doesn't imply Causation
+**Correlation doesn't imply Causation!**
 
 Correlation between two variables indicates the the change in one variable associated with another variable. However it doesn't imply that change in one variable **actually causes** the change in another variable.
 
 Sometimes it is clear there is causal relationship. 
 
-* For the height and weight data, adding more vertical structure to body causes the total mass increase. 
 * Increase the the wattage of bulbs increase the brightness of the bulb.
 
-#![image by Lum3n1](\images\cc_02.png){ width=20%,height=5% }
+**Classic Example**
+
+![](\images\cc_02.png){ width=20%,height=5% }
 
 Ice cream sales and Shark attack are positively correlated, but clearly selling ice cream not causes the shark attack or vice versa. Instead a third variable outdoor temperature causes changes in other two variables. Higher temperature increases more sales of ice creams and more swimmer in the sea, which leads to more shark attacks.
 
