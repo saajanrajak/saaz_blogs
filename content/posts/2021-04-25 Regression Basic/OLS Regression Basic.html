@@ -1,0 +1,245 @@
+---
+title: "OLS Regression Basics"
+author: "Saajan"
+date: 2021-04-25
+output: html_document
+categories: ["Statistics","Machine Learning" ]
+tags: ["Machine Learning", "Regression", "Algebra"]
+math: TRUE
+---
+
+<script src="OLS Regression Basic_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="introduction" class="section level1">
+<h1><strong>Introduction</strong></h1>
+<p>The Objective of this blog is to understand basic concepts of Regression. We are going to learn today</p>
+<ul>
+<li><strong>What is Regression?</strong></li>
+<li><strong>Different Types of Regression</strong></li>
+<li><strong>OLS Regression</strong></li>
+<li><strong>Common Terminology in Regression</strong></li>
+<li><strong>Regression Calculation in R</strong></li>
+<li><strong>Interpretation Regression Results</strong></li>
+<li><strong>Different Types of Sum of Squares in Regression</strong></li>
+</ul>
+<div id="what-is-regression" class="section level2">
+<h2><strong>What is Regression?</strong></h2>
+<p>Regression is a statistical method used in various field like <em>Finance, Medical, Manufacturing, Transportation etc</em>. for predicting future trends by analyzing historical data. Some examples</p>
+<ul>
+<li>Predicating <strong>Weight of a person</strong> with respect to <strong>Height of a person</strong></li>
+<li>Predicting <strong>House Price</strong> with respect to <strong>Size of the House</strong> and <strong>Number of Bedrooms</strong> variable.</li>
+<li>Predicating Time to reach from Position <strong>A</strong> to <strong>B</strong> from variables <strong>Route, Day,Time of a day, Weather, Holidays, Road category, etc</strong></li>
+</ul>
+<p>Regression Equation
+<span class="math display">\[\hat Y = \beta_0 +\beta_1X_1 + \beta_2X_2+...\beta_kX_k\]</span></p>
+<p>Regression explains the variation in the Dependent variable using variation in Independent variable. In simple words, <strong>Independent variable used to predict Dependent variable</strong>.</p>
+</div>
+<div id="different-types-of-regression" class="section level2">
+<h2><strong>Different Types of Regression</strong></h2>
+<p>Some of the most common types of regression analysis procedure are</p>
+<ul>
+<li><strong>Ordinary Linear Regression</strong>: Used when predictor variable and independent variable are linear related. Predicative variable should also be continuous</li>
+<li><strong>Logistic Regression</strong>: Used when dependent variable have discrete values. Example “True/False”, “0/1”, “A/B/C” etc</li>
+<li><strong>Ridge Regression</strong>: Used when there is high correlation between independent variables</li>
+<li><strong>Lasso Regression</strong>: Used to select subset of predictors for better predication. It shrunk data values towards a central point like mean.</li>
+<li><strong>Polynomial Regression</strong>: Used when there is non-linear relationship between independent and dependent variables as an <span class="math inline">\(n^{th}\)</span> degree polynomial</li>
+<li><strong>Bayesian Linear Regression</strong>: Use bayesian theorem to find the value regression coefficients.</li>
+</ul>
+<p>In this blog we will be mostly focusing in <strong>OLS Regression</strong>.</p>
+</div>
+</div>
+<div id="ols-regression" class="section level1">
+<h1><strong>OLS Regression</strong></h1>
+<p>While applying Regression, we have to very careful about the data. We should have some logical understanding about the inputs and outputs of the data. There is a common saying in Machine learning world, <strong>Garbage In, Garbage Out</strong></p>
+<p>The goal of regression analysis is to draw a line which minimizes the overall distance of the points from the line. While Calculating we will find that some residuals values are positive and some are negative. Adding all these values will cancel each other, Because of this we use square of residuals for finding our best fit line. In this way they are always positive. This method of finding least value of sum of residual square is called <strong>Ordinary Least Square Regression</strong></p>
+<p><img src="\images\Regression%20Blog\reg_2.gif" height="250" /></p>
+<p>While collecting data for <strong>OLS regression</strong>, We should ensure <strong>Independent Variables must be either Continuous or Categorical/Factor Variables. Dependent variable should be continuous type</strong>. <em>If Dependent variable is not continuous we will most likely to use different kind of Regression analysis</em>.</p>
+<div id="common-terminology-in-regression" class="section level2">
+<h2><strong>Common Terminology in Regression</strong></h2>
+<ul>
+<li><em>Variable types</em>: There are many ways we name a variable in regression.
+<ul>
+<li><strong>Input Variables</strong>: Independent Variable, Predictor Variable</li>
+<li><strong>Output Variables</strong>: Dependent Variable, Response Variable</li>
+</ul></li>
+<li><em>Observed and Predicted Values</em>
+<ul>
+<li><strong>Observed values</strong>: The values of dependent values that we record for during the the study or experiment along with values of independent values. These values are denoted by <strong>Y</strong>.</li>
+<li><strong>Predicted values</strong>: The values that model predict for the dependent variable using the independent values. Predicted values also known as Fitted values. These are denoted by <span class="math inline">\(\hat{Y}\)</span>.</li>
+<li>In general terms, <strong><em>Observed Values is one that exist in real world, while Predicted Values generated by the model</em></strong>.<br />
+</li>
+</ul></li>
+<li><strong><em>Residuals</em></strong>: Graphically <em>Residual are the vertical distance between the observed and fitted values</em>.
+<ul>
+<li>To understand how well the model predicts the value, we need to asses the values of Observed and Predicated values. These differences represent the error in the model.</li>
+<li><strong><em>No Model is Perfect</em></strong>, the observed and predicted values will not always be the same. However models can be good enough to be useful.</li>
+<li><strong>Residual = Observed value - Predicted value</strong>. for the <span class="math inline">\(i_{th}\)</span> observation, <span class="math inline">\(e_i = y_i - \hat{y_i}\)</span></li>
+</ul>
+<img src="\images\Regression%20Blog\reg_4.png" /></li>
+</ul>
+</div>
+<div id="regression-calculation-in-r" class="section level2">
+<h2><strong>Regression Calculation in R</strong></h2>
+<p><strong>Exploratory Data Analysis (EDA)</strong>: Before applying any method for predication, its always better to first understand your data. EDA helps us a lot understanding data. In this blog, we are trying to understand <strong>OLS Regression</strong>, so we will skipping EDA as of now. In future will create another blog for depth EDA.</p>
+<p><strong>Standardization of variable</strong>: We should standardize the variable when our regression model contains polynomial terms or interaction terms, these terms produce excessive amount of multicollinearity which leads misleading model results. there are many ways we can perform Standardization/Normalization
++ Z-Score Scaling
++ Min-Max scaling
++ Standard deviation scaling</p>
+<p>As we are not planning to use polynomial and interaction term, we will not standardize the variables.</p>
+<p>We will be using Housing price predication <a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data" title="hp data">data</a> from Kaggle.We will be considering
+* <strong><em>Input Variable</em></strong>: <strong>Total Surface Area</strong> (sum of basement, 1st floor, 2nd Floor Area) and <strong>central air</strong>
+* <strong><em>Output Variable</em></strong>: <strong>Sales price</strong></p>
+<p><img src="/posts/2021-04-25 Regression Basic/OLS%20Regression%20Basic_files/figure-html/unnamed-chunk-1-1.png" width="768" /><img src="/posts/2021-04-25 Regression Basic/OLS%20Regression%20Basic_files/figure-html/unnamed-chunk-1-2.png" width="768" /></p>
+<ul>
+<li><strong>Function</strong>: There are many functions in R to do Regression, the most common is <span class="math inline">\(lm\)</span> function of base R which we will be using.
+<ul>
+<li>Syntax of <span class="math inline">\(lm(function, data)\)</span></li>
+<li>formula = <span class="math inline">\(Y \sim f(X_i)\)</span> here
+<ul>
+<li><strong>Y</strong>: Dependent variable</li>
+<li><strong>X</strong>: Independent variable</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre class="r"><code>## LM model 
+model_1 &lt;- lm(formula = &quot;SalePrice ~ tsf + CentralAir&quot;, data = data)
+
+model_1</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = &quot;SalePrice ~ tsf + CentralAir&quot;, data = data)
+## 
+## Coefficients:
+## (Intercept)          tsf  CentralAirY  
+##   -43879.39        73.63     38281.58</code></pre>
+</div>
+<div id="interpretation-regression-results" class="section level2">
+<h2><strong>Interpretation Regression Results</strong></h2>
+<p>Basic OLS Regression equation and our Model equation
+<span class="math display">\[ Y = \beta_0 +\beta_1X_1 + \beta_2X_2 ... \beta_kX_k\]</span></p>
+<p><span class="math display">\[ SalePrice = -43879 + 74 * tsf + 38282 * CentralAir Y\]</span></p>
+<p>We will use <span class="math inline">\(summary\)</span> function to get in depth summary of model.</p>
+<pre class="r"><code>summary(model_1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = &quot;SalePrice ~ tsf + CentralAir&quot;, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -699693  -22909   -1530   19763  271639 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -43879.387   5921.569  -7.410 2.13e-13 ***
+## tsf             73.629      1.574  46.788  &lt; 2e-16 ***
+## CentralAirY  38281.576   5240.972   7.304 4.57e-13 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 48640 on 1457 degrees of freedom
+## Multiple R-squared:  0.6256, Adjusted R-squared:  0.6251 
+## F-statistic:  1217 on 2 and 1457 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><strong>Interpretation of Regression terms</strong></p>
+<ul>
+<li><strong><em>Intercept</em></strong>: Its just a adjustment constant, there is no physical interpretation</li>
+</ul>
+<hr />
+<ul>
+<li><strong><em>Continuous Variable Coefficient</em></strong>: If all other variable kept constant, there will be <span class="math inline">\(\beta_1\)</span> unit increment in dependent variable for each unit increment of that continuous variable
+<ul>
+<li>from above equation we can say that, for each one unit increment of total surface area(<strong>tsf</strong>), there will be on average $74 more <strong>SalePrice</strong></li>
+<li>The <em>signif.Codes</em> associated to each estimate, three stars (or asterisks) represent a highly significant p-value.</li>
+</ul></li>
+<li><strong><em>Categorical Variable Coefficient</em></strong>: If all other variables remains constant, <span class="math inline">\(\beta_2\)</span> is then average difference in <span class="math inline">\(Y\)</span> between the category <span class="math inline">\(X_2=0\)</span> i.e. the reference group and the category for which <span class="math inline">\(X_2 =1\)</span> i.e. the comparison group
+<ul>
+<li>Here, Central Air is our categorical value having two value (Y and N) for availability and non-availability.<br />
+</li>
+<li>CentralAir<strong>N</strong> is our reference group and CentralAir<strong>Y</strong> is our comparison group</li>
+<li>So compared to Home with <strong>No Central Air</strong>, we would expect house having <strong>Central Air</strong> will cost more $38282.
+<ul>
+<li>Central Air No , <span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \epsilon\)</span><br />
+</li>
+<li>Central Air yes, <span class="math inline">\(Y = (\beta_0 + \beta_2)+ \beta_1X_1 + \epsilon\)</span><br />
+</li>
+<li>On average <strong>SalePrice</strong> differ by <span class="math inline">\(\beta_2\)</span> between reference and comparison group.</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Std. Error</strong> It is Residual Standard Error divided by the square root of the sum of the square of that particular x variable.</li>
+<li><strong>t value</strong> estimate divided by <strong>Std. Error</strong></li>
+<li><strong><em>Pr(&gt;|t|)</em></strong>: check for significance, individual variable level
+<ul>
+<li>Low Value (&lt; 0.05) states variable is significant with at least 95% confidence.</li>
+</ul></li>
+</ul>
+<hr />
+<ul>
+<li><strong><em>Residual Standard Error</em></strong> Average amount that the response distance will deviate from true regression line.
+<ul>
+<li>The Degree of Freedom(DOF) is the difference of number of observation and number of coefficients to estimate(<span class="math inline">\(\beta_0...\beta_3\)</span>). In our case, observation1460 and estimates 3 therefore DOF is 1457.</li>
+</ul></li>
+<li><strong><em>F-statistic</em></strong>: Check for significance, overall variables
+<ul>
+<li>The further the F-statistic is from 1 the better it is</li>
+<li>It also help in comparing multiple linear models</li>
+</ul></li>
+<li><strong><em>Multiple <span class="math inline">\(R^2\)</span></em></strong> : Tell us what proportion of the variance is explained by our model. In simple words it tell us how well our model fits the data.
+<ul>
+<li>Addition of more independent variable increases the Multiple <span class="math inline">\(R^2\)</span> value.</li>
+<li>If there is only one continuous independent variable and one continuous dependent variable, then multiple <span class="math inline">\(R^2\)</span> is simply the square of correlation of these two variable.</li>
+<li>Mathematically
+<span class="math display">\[R^2 = 1 - \dfrac{SSE}{TSS} = \dfrac{RSS}{TSS} \]</span>
+<span class="math display">\[R^2 = 1 - \dfrac{Unexplanied \ Variabilty}{Total \ Variability} = \dfrac{Explanied \ Variabilty}{Total \ Variability}\]</span>
+<ul>
+<li>SSE: Sum of Square, <span class="math inline">\(\sum(y - \hat y)^2\)</span></li>
+<li>TSS: Total Sum of Square, <span class="math inline">\(\sum_{i=1}^{n} (y- \bar y)^2\)</span><br />
+</li>
+<li>RSS: Regression Sum of Square, <span class="math inline">\(\sum (\hat y - \bar y)^2\)</span>
+<ul>
+<li><span class="math inline">\(y\)</span>: observed Value,</li>
+<li><span class="math inline">\(\bar y\)</span> : mean value,</li>
+<li><span class="math inline">\(\hat y\)</span>: fitted/modeled value</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong><em>Adjusted <span class="math inline">\(R^2\)</span></em></strong>: Adjusted <span class="math inline">\(R^2\)</span> normalizes Multiple R-Squared by taking into account how many observation and variables we are using</li>
+</ul>
+</div>
+<div id="different-types-of-sum-of-squares-in-regression" class="section level2">
+<h2><strong>Different Types of Sum of Squares in Regression</strong></h2>
+<blockquote>
+<p>RSS + SSE = TSS</p>
+</blockquote>
+<blockquote>
+<p>Regression Sum of Square + Sum of Square of Error = Total Sum of Square</p>
+</blockquote>
+<blockquote>
+<p>Explained variability + Unexplained variability = Total variability</p>
+</blockquote>
+<ul>
+<li>Comparison of different types of squares
+<ul>
+<li><strong>RSS</strong> represents the variability that your model explains. Higher value is usually good.</li>
+<li><strong>SSE</strong> represents the variability that your model doesn’t explain. Smaller value is usually good</li>
+<li><strong>TTS</strong> represents overall variability of dependent variable around its mean</li>
+</ul></li>
+<li>Mathematical form
+<ul>
+<li>RSS : Sum of squared distances between the predicted values and mean of the dependent variable <span class="math inline">\(\sum (\hat y - \bar y)^2\)</span>.</li>
+<li>SSE : Sum of squared distances between the observed and predicted values of the dependent variable <span class="math inline">\(\sum(y - \hat y )^2\)</span>.</li>
+<li>TSS : Sum of squared distances between the observed values and mean of the dependent variable <span class="math inline">\(\sum_ (y- \bar y)^2\)</span></li>
+</ul></li>
+</ul>
+<p>Some important remarks regarding different type of square</p>
+<ul>
+<li>RSS cannot be greater than TSS while SSE cannot be smaller than zero.</li>
+<li>Some refer RSS as residual sums of squares (which we are calling SSE) rather than regression sums of squares. Be aware of this potentially confusing use of terminology!</li>
+<li>In OLS we should have relatively small and unbiased residuals. OLS regressions are susceptible to outliers. for example consider residuals be (1,3,4) then SSE will be 26, if there is outlier say then residuals (1, 9, 4) then sse will be 98. which will affect the model. Therefore we should be aware of outliers.</li>
+</ul>
+<p>Happy Learning :)</p>
+<hr />
+</div>
+</div>
