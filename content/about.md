@@ -19,7 +19,7 @@ R, SQL, Excel. Git, Tableau, Power Bi, Google Analytics
 B-tech Civil Engg from IIT Bombay, 2015
 
 ## Resume 
-[Saajan_004.pdf](https://github.com/saajanrajak/saaz_blogs/files/6266798/Saajan_004.pdf)
+[Saajan_Resume.pdf](https://github.com/saajanrajak/saaz_blogs/files/6266798/Saajan_004.pdf)
 
 
 
