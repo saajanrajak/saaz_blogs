@@ -1,3 +1,4 @@
+
 ---
 slug: about
 title: About me
@@ -19,7 +20,7 @@ R, SQL, Excel. Git, Tableau, Power Bi, Google Analytics
 B-tech Civil Engg from IIT Bombay, 2015
 
 ## Resume 
-[Saajan_Resume.pdf](https://github.com/saajanrajak/saaz_blogs/files/6266798/Saajan_004.pdf)
+[saajan_resume.pdf](https://github.com/saajanrajak/saaz_blogs/files/6454289/saajan_resume.pdf)
 
 
 
