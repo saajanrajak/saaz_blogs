@@ -87,7 +87,7 @@ cor(mtcars$wt, mtcars$mpg, method = &quot;spearman&quot;) </code></pre>
 <pre><code>## [1] -0.886422</code></pre>
 <p>We can also plot correlation matrix, but after removing categorical variable.</p>
 <pre class="r"><code>library(corrplot)</code></pre>
-<pre><code>## corrplot 0.84 loaded</code></pre>
+<pre><code>## corrplot 0.90 loaded</code></pre>
 <pre class="r"><code># removing categorical variable
 dat &lt;- mtcars %&gt;%
   select(-vs, -am)
