@@ -1,0 +1,27 @@
+---
+title: "Logistic Regression"
+author: "Saajan"
+date: 2021-07-26
+output: html_document
+categories: ["Machine Learning" ]
+tags: ["Regression", "Classification"]
+math: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Classification
+
+## Contents
+
+1. What is Logistic Regression
+2. When to use
+3. Logistic Regression in R
+4. Analyzing Results
+5. Further Reads
+
+
