@@ -20,7 +20,7 @@ raw_data <- read_csv(data_url)
 
 # **Introduction**
 
-The Objective of this blog is to understand basic concepts of Logistic Regressio. We are going to learn today
+The Objective of this blog is to understand basic concepts of Logistic Regression. We are going to learn today
 
 - **What is Logistic Regression?**
 - **Logistic Regression Programming in R**
@@ -29,26 +29,26 @@ The Objective of this blog is to understand basic concepts of Logistic Regressio
 # **What is Logistic Regression**
 
 Logistic Regression is predictive modeling technique for **discrete/categorical outcome** from single/set of input variables. The most common logistic regression outcomes are **Yes/No**, **TRUE/False**, **1/0**, **Small/Medium/Large**.
- is a part of Supervised Learning. 
  
-- **Binary Logistic Regression**: Logistic Regression where output variable is 2 types. Like **This/That**, **Yes/No**, **A/B**
-- **Multinomial Logistic Regression**: Logistic Regression where output variable is more than 2 types. Example **A/B/C**, **Small/Medium/Large**. 
+- **Binary Logistic Regression**: Logistic Regression where output variable is 2 category. Like **This/That**, **Yes/No**, **A/B**
+- **Multinomial Logistic Regression**: Logistic Regression where output variable is more than 2 category. Example **A/B/C**, **Small/Medium/Large**. 
 
 
 Logistic Regression is one of the most commonly used predictive technique to predict binary classification problem.
 
 Real world Examples.
 
-- E-commerce company want to know which customer would like to be **Retained/Churn** from new customers that are coming to their site, by  customer behavior data. To Increase the ROI, they would like to give promotional offers to customers who is more likely to be retained.
+- E-commerce company want to know which customer would like to be **Retained/Churn** after coming to their site, from customer behavior data. 
 - Similarly, Credit Company wants to predict which customer is going to be **Defaulter/Not Defaulter** on credit card by characteristics like Customer Annual Income, Monthly credit card payment,  number of defaults etc.
 
 
 
-## **Logistic v/s Linear Regression
+## **Logistic v/s Linear Regression**
  
-The main difference between Logistic and Linear regression is type of output variable. Linear Regression output variable is **Continous** while Logistic Regression output variable is **Discrete/Categorical**.
+The main difference between Logistic and Linear regression is type of output variable. Linear Regression output variable is **Continuous** while Logistic Regression output variable is **Discrete/Categorical**.
 
 Examples
+
 - Linear Regression: How many products a customer can buy in a month period.
 - Logistic Regression: Would this customer will buy again after a month from his first order date.
 
